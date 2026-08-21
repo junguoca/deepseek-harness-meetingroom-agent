@@ -1,0 +1,50 @@
+# Meeting-minutes composition. The gateway supplies the internal service token through the
+# Runtime environment; it is never included in model-visible prompt text.
+- id: credentials
+  name: '@deepseek-ai/dsh-credentials-local'
+
+- id: settings
+  name: '@deepseek-ai/dsh-settings-file'
+
+- id: llm-pi-ai
+  name: '@deepseek-ai/dsh-llm-pi-ai'
+  config:
+    providers:
+      nbwcode:
+        apiKeyEnv: NBWCODE_API_KEY
+        api: openai-completions
+        baseURL: https://hk.nbwcode.top/v1
+        models:
+          - id: gpt-5.6-sol
+            input: [text]
+
+- id: meeting-agent
+  name: '@deepseek-ai/dsh-agent-spine-demo'
+  config:
+    provider: nbwcode
+    model: gpt-5.6-sol
+    workspaceContext: false
+    persona: 'Generate the requested meeting minutes using the meeting instructions.'
+    toolBash: false
+    skills:
+      enabled: false
+    goals: false
+
+- id: persistence
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: !!js "process.env.DSH_MEETING_SESSIONS_ROOT ?? './.sessions'"
+    compression: !!js "process.env.DSH_SNAPSHOT === undefined ? 'zstd' : 'none'"
+
+- id: meeting-prompt
+  name: '@deepseek-ai/dsh-meeting-prompt'
+
+- id: meeting-materials
+  name: '@deepseek-ai/dsh-meeting-materials-tool'
+  config:
+    serviceUrl: !!js "process.env.MEETING_SERVICE_URL ?? 'http://127.0.0.1:4010'"
+    timeoutMs: 15000
+    maxOutputBytes: 32768
+
+- id: jsonrpc
+  name: '@deepseek-ai/dsh-sdk-jsonrpc-server'

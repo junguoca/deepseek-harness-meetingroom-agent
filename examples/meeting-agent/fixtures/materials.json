@@ -1,0 +1,12 @@
+{
+  "meetingId": "meeting-001",
+  "agenda": "接口开发进度、预算调整和下一版本规划",
+  "participants": ["张三", "李四", "王五"],
+  "materials": [
+    {
+      "name": "项目计划书.md",
+      "type": "markdown",
+      "content": "# 项目计划\n\n- 订单查询接口：2026-08-20\n- 搜索过滤需求文档：待提交"
+    }
+  ]
+}

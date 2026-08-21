@@ -1,0 +1,7 @@
+{
+  "name": "meeting-agent-example",
+  "description": "Runnable meeting-minutes Agent composition",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module"
+}

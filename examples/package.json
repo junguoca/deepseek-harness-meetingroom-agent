@@ -112,6 +112,10 @@
     "@deepseek-ai/dsh-web": "workspace:*",
     "@deepseek-ai/dsh-web-fetch-http": "workspace:*",
     "@deepseek-ai/dsh-workflow-worker-thread": "workspace:*",
-    "@deepseek-ai/dsh-agent-instructions": "workspace:*"
+    "@deepseek-ai/dsh-agent-instructions": "workspace:*",
+    "@deepseek-ai/dsh-meeting-prompt": "workspace:*",
+    "@deepseek-ai/dsh-meeting-materials-tool": "workspace:*",
+    "@deepseek-ai/dsh-sdk-jsonrpc-server": "workspace:*",
+    "@deepseek-ai/dsh-sdk-client": "workspace:*"
   }
 }

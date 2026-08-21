@@ -1,0 +1,57 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Mirrors the resident 28px attach circle so the control sits flush in the tool row. */
+.mic,
+.micListening {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--dsw-specific-selector);
+  color: var(--dsw-alias-label-primary);
+  cursor: pointer;
+}
+
+.mic:hover:not(:disabled) {
+  background: var(--dsw-alias-interactive-bg-hover-solid);
+}
+
+.micListening {
+  background: var(--dsw-alias-state-error-primary);
+  color: #fff;
+  animation: dsh-voice-pulse 1.2s ease-in-out infinite alternate;
+}
+
+.micListening:hover:not(:disabled) {
+  background: var(--dsw-alias-state-error-primary);
+}
+
+@keyframes dsh-voice-pulse {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
+}
+
+.hint {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.error {
+  min-width: 0;
+  color: var(--dsw-alias-state-error-primary);
+  font-size: 12px;
+  line-height: 18px;
+}
