@@ -1,0 +1,32 @@
+# Gradle build output
+.gradle/
+build/
+app/build/
+
+# Local machine config (SDK path) — never commit
+local.properties
+
+# Signing keys — never commit
+*.keystore
+*.jks
+*.p12
+*.key
+*.pem
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# APK / AAB outputs
+*.apk
+*.aab
+
+# Logs
+*.log
+captures/
