@@ -180,6 +180,14 @@
     - id: ui-layout
       name: '@deepseek-ai/dsh-client-ui-layout'
 
+    - id: meeting-runtime
+      name: '@deepseek-ai/dsh-meeting-runtime'
+      config:
+        storageRoot: F:\deepseek_harness\meeting-data
+        summaryIntervalMs: 300000
+        maxAudioChunkBytes: 104857600
+        maxTranscriptChars: 120000
+
     - id: ui-meeting
       name: '@deepseek-ai/dsh-client-ui-meeting'
 

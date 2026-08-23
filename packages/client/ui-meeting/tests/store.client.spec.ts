@@ -12,17 +12,11 @@ describe('meeting store', () => {
     expect(store.getSnapshot().open).toBe(false)
   })
 
-  it('tracks a running request and its result', () => {
+  it('keeps the editable meeting id across panel visibility changes', () => {
     const { store, actions } = createMeetingStore().create()
-    actions.setRequest('req-1')
-    expect(store.getSnapshot()).toMatchObject({ requestId: 'req-1', status: 'running', markdown: '', error: '' })
-    actions.setResult('completed', '---\nmeeting_id: meeting-001\n---', '')
-    expect(store.getSnapshot()).toMatchObject({ status: 'completed', markdown: '---\nmeeting_id: meeting-001\n---', error: '' })
-  })
-
-  it('records failures', () => {
-    const { store, actions } = createMeetingStore().create()
-    actions.setResult('failed', '', 'boom')
-    expect(store.getSnapshot()).toMatchObject({ status: 'failed', error: 'boom' })
+    actions.setMeetingId('weekly-sync')
+    actions.open()
+    actions.close()
+    expect(store.getSnapshot()).toMatchObject({ open: false, meetingId: 'weekly-sync' })
   })
 })

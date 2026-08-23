@@ -164,6 +164,7 @@
     { "path": "./packages/core/system-prompt" },
     { "path": "./packages/meeting/meeting-prompt" },
     { "path": "./packages/meeting/meeting-materials-tool" },
+    { "path": "./packages/meeting/meeting-runtime" },
     { "path": "./packages/core/agent" },
     { "path": "./packages/core/agent-default-model" },
     { "path": "./packages/interaction/commands" },
