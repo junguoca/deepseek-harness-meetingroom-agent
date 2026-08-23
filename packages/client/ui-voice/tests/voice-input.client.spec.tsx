@@ -4,6 +4,7 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import {
   VoiceInput, isTerminalSpeechError, speechErrorMessage, speechRecognitionConstructor,
 } from '../src/client/VoiceInput.tsx'
+import type { VoiceInputProps } from '../src/client/VoiceInput.tsx'
 import type { SpeechRecognitionEventLike, SpeechRecognitionLike } from '../src/client/VoiceInput.tsx'
 
 /** Every recognition instance ever constructed, in order (fresh instance per segment). */
@@ -43,7 +44,7 @@ function latest(): FakeRecognition {
 }
 
 /** Minimal standard-kit stubs for the input.left seat (typed loosely; the component reads only draft + setDraft). */
-function props(overrides: { draft?: string; setDraft?: (text: string) => void } = {}): never {
+function props(overrides: { draft?: string; setDraft?: (text: string) => void } = {}): VoiceInputProps {
   const setDraft = overrides.setDraft ?? (() => {})
   const inputState = {
     draft: overrides.draft ?? '',
